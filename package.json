@@ -1,12 +1,9 @@
 {
-  "name": "chrome-web-store-item-property",
+  "name": "@ginlink/chrome-web-store-item-property",
   "description": "Gather meta information from chrome web store",
   "version": "1.2.0",
-  "author": {
-    "name": "sanemat",
-    "email": "o.gata.ken@gmail.com",
-    "url": "sane.jp"
-  },
+  "license": "MIT",
+  "repository": "ginlink/node-chrome-web-store-item-property",
   "dependencies": {
     "array-includes": "^3.0.3",
     "create-error-class": "^3.0.0",
@@ -50,8 +47,6 @@
     "web-store",
     "webstore"
   ],
-  "license": "MIT",
-  "repository": "pandawing/node-chrome-web-store-item-property",
   "scripts": {
     "build:browser": "npm update && npm prune && npm dedupe && browserify --standalone chromeWebStoreItemProperty ./index.js | derequire > build/chrome-web-store-item-property.js",
     "changelog": "conventional-changelog --infile changelog.md --same-file --preset angular",
