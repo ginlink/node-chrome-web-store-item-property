@@ -1,3 +1,14 @@
+# Changelog
+
+All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+
+## [1.3.0](https://github.com/ginlink/node-chrome-web-store-item-property/compare/v1.2.0...v1.3.0) (2023-08-16)
+
+
+### Features
+
+* add describe property ([4148fd0](https://github.com/ginlink/node-chrome-web-store-item-property/commit/4148fd01745ef9a0d6f8b749afd5b3075a2ac359))
+
 # [1.2.0](https://github.com/pandawing/node-chrome-web-store-item-property/compare/v1.1.3...v1.2.0) (2019-11-08)
 
 
@@ -72,6 +83,3 @@
 * **convert:** parse and convert meta data ([b8393a2](https://github.com/pandawing/node-chrome-web-store-item-property/commit/b8393a2))
 * **get:** add default config ([5c3360e](https://github.com/pandawing/node-chrome-web-store-item-property/commit/5c3360e))
 * **run:** add run ([86ee053](https://github.com/pandawing/node-chrome-web-store-item-property/commit/86ee053))
-
-
-
