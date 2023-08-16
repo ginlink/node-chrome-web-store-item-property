@@ -7,17 +7,22 @@ var buildDetailUrl = require('./build-detail-url');
 var mergeConfig = require('./merge-config');
 var defaultConfig = {
   headers: {
-    'User-Agent': 'https://github.com/pandawing/node-chrome-web-store-item-property'
+    'User-Agent':
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
   },
   qs: {
     hl: 'en',
-    gl: 'US'
-  }
+    gl: 'US',
+  },
 };
 
-function get (identifier, userConfig) {
+function get(identifier, userConfig) {
   return new Promise(function (resolve, reject) {
-    var config = mergeConfig(buildDetailUrl(identifier), defaultConfig, userConfig);
+    var config = mergeConfig(
+      buildDetailUrl(identifier),
+      defaultConfig,
+      userConfig
+    );
     request(config, function (error, response, body) {
       if (error) {
         reject(error);

@@ -7,11 +7,7 @@ var Parser = htmlparser2.Parser;
 var DomUtils = htmlparser2.DomUtils;
 var includes = require('array-includes');
 var parseFloatWithComma = require('./parse-float-with-comma');
-var keysStringToFloat = [
-  'ratingCount',
-  'ratingValue',
-  'UserDownloads'
-];
+var keysStringToFloat = ['ratingCount', 'ratingValue', 'UserDownloads'];
 
 function convert(detailHtml) {
   return new Promise(function (resolve, reject) {
@@ -19,19 +15,32 @@ function convert(detailHtml) {
     var options = {};
     var handler = new DomHandler(null, options);
     new Parser(handler, options).end(detailHtml);
-    DomUtils.getElementsByTagName('meta', handler.dom, true).forEach(function(el) {
+    DomUtils.getElementsByTagName('meta', handler.dom, true).forEach(function (
+      el
+    ) {
+      var nameValue = DomUtils.getAttributeValue(el, 'name');
       var itempropValue = DomUtils.getAttributeValue(el, 'itemprop');
+      var contentValue = DomUtils.getAttributeValue(el, 'content');
+
       if (!itempropValue) {
+        if (nameValue) {
+          itemProps[nameValue.toLowerCase()] = contentValue;
+        }
         return;
       }
-      var contentValue = DomUtils.getAttributeValue(el, 'content');
+
       // Split content like <meta itemprop="interactionCount" content="UserDownloads:418" />
-      if (itempropValue === 'interactionCount' && contentValue &&
-        contentValue.indexOf(':') !== -1) {
+      if (
+        itempropValue === 'interactionCount' &&
+        contentValue &&
+        contentValue.indexOf(':') !== -1
+      ) {
         var keyValue = contentValue.split(':', 2);
         itemProps[itempropValue] = itemProps[itempropValue] || {};
         if (includes(keysStringToFloat, keyValue[0])) {
-          itemProps[itempropValue][keyValue[0]] = parseFloatWithComma(keyValue[1]);
+          itemProps[itempropValue][keyValue[0]] = parseFloatWithComma(
+            keyValue[1]
+          );
         } else {
           itemProps[itempropValue][keyValue[0]] = keyValue[1];
         }
@@ -48,7 +57,10 @@ function convert(detailHtml) {
       reject(new InvalidFormatError('There is no meta property'));
       return;
     }
-    if (!Object.prototype.hasOwnProperty.call(itemProps, 'url') || !itemProps['url']) {
+    if (
+      !Object.prototype.hasOwnProperty.call(itemProps, 'url') ||
+      !itemProps['url']
+    ) {
       reject(new InvalidFormatError('url in response is required'));
       return;
     }
