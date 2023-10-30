@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ginlink/node-chrome-web-store-item-property/compare/v1.4.0-alpha.3...v1.4.0) (2023-10-30)
+
 ## [1.4.0-alpha.3](https://github.com/ginlink/node-chrome-web-store-item-property/compare/v1.4.0-alpha.2...v1.4.0-alpha.3) (2023-10-30)
 
 
