@@ -19,7 +19,7 @@ var defaultConfig = {
 function get(identifier, userConfig) {
   return new Promise(function (resolve, reject) {
     var config = mergeConfig(
-      buildDetailUrl(identifier),
+      buildDetailUrl(userConfig, identifier),
       defaultConfig,
       userConfig
     );
