@@ -23,6 +23,7 @@ function newConvert(detailHtml) {
       // 以og:开头的meta标签
       if (property && property.indexOf('og:') === 0) {
         var nameValue = property.replace('og:', '');
+        nameValue = nameValue.replace('title', 'name'); // title -> name
         itemProps[nameValue.toLowerCase()] = contentValue;
         return;
       }
