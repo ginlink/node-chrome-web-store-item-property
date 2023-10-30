@@ -34,10 +34,13 @@
     "node": ">=8.0.0"
   },
   "files": [
-    "build"
+    "build",
+    "src",
+    "index.js",
+    "index.d.ts"
   ],
-  "main": "./build/chrome-web-store-item-property.js",
-  "types": "./build/chrome-web-store-item-property.d.ts",
+  "main": "index.js",
+  "types": "index.d.ts",
   "keywords": [
     "api",
     "chrome",
