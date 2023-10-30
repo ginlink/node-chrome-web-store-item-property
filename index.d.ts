@@ -1,4 +1,4 @@
-declare module 'chromeWebStoreItemProperty' {
+declare module '@ginlink/chrome-web-store-item-property' {
   interface InteractionCount {
     UserDownloads: number;
   }
