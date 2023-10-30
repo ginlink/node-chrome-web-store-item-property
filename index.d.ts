@@ -20,7 +20,7 @@ declare module '@ginlink/chrome-web-store-item-property' {
     ratingCount?: number;
   }
 
-  function chromeWebStoreItemProperty(
+  function run(
     identifier: string,
     options?: {
       headers?: Record<string, any>;
@@ -32,5 +32,5 @@ declare module '@ginlink/chrome-web-store-item-property' {
     }
   ): Promise<ChromeWebStoreItem>;
 
-  export = chromeWebStoreItemProperty;
+  export { run };
 }

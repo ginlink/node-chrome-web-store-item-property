@@ -13,6 +13,7 @@ function run(identifier, userConfig) {
 }
 
 module.exports = run;
+module.exports.run = run;
 module.exports.get = get;
 module.exports.convert = convert;
 module.exports.HTTPError = HTTPError;
