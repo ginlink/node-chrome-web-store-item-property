@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0-alpha.1](https://github.com/ginlink/node-chrome-web-store-item-property/compare/v1.4.0-alpha.0...v1.4.0-alpha.1) (2023-10-30)
+
+
+### Bug Fixes
+
+* title -> name ([aa59850](https://github.com/ginlink/node-chrome-web-store-item-property/commit/aa59850b5da796c4ebec58197169170af9b63e92))
+
 ## [1.4.0-alpha.0](https://github.com/ginlink/node-chrome-web-store-item-property/compare/v1.2.0...v1.4.0-alpha.0) (2023-10-30)
 
 

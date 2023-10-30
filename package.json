@@ -1,7 +1,7 @@
 {
   "name": "@ginlink/chrome-web-store-item-property",
   "description": "Gather meta information from chrome web store",
-  "version": "1.4.0-alpha.0",
+  "version": "1.4.0-alpha.1",
   "license": "MIT",
   "repository": "ginlink/node-chrome-web-store-item-property",
   "publishConfig": {
