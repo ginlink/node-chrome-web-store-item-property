@@ -1,13 +1,19 @@
 var chromeWebStoreItemProperty = require('./index.js');
 
+// https://chrome.google.com/webstore/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm
+
 // free app
-chromeWebStoreItemProperty('pgojnojmmhpofjgdmaebadhbocahppod', {
-  headers: {
-    'User-Agent':
-      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
-  },
-  newConvert: true,
-})
+chromeWebStoreItemProperty
+  // .run('adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom', {
+  .run('adblock-%E2%80%94-best-ad-blocker/gighmmpiobklfepjocnamgkkbiglidom', {
+    // .run('cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm', {
+    // https://chrome.google.com/webstore/detail/aiprm-for-chatgpt/ojnbohmppadfgpejeebfnmnknjdlckgj
+    headers: {
+      'User-Agent':
+        'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/115.0.0.0 Safari/537.36',
+    },
+    newConvert: true,
+  })
   .then(function (value) {
     console.log('[res]:', value);
     // =>

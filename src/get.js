@@ -14,7 +14,13 @@ var defaultConfig = {
     hl: 'en',
     gl: 'US',
   },
+  followRedirect: false,
 };
+
+function decodeAndEncodeUrl(url) {
+  var buffer = Buffer.from(url, 'binary');
+  return encodeURI(buffer.toString('utf8'));
+}
 
 function get(identifier, userConfig) {
   return new Promise(function (resolve, reject) {
@@ -28,7 +34,32 @@ function get(identifier, userConfig) {
         reject(error);
         return;
       }
-      if (!isOk(response)) {
+
+      if (response.statusCode === 301 || response.statusCode === 302) {
+        // 处理重定向
+        var location = response.headers['location'];
+        if (location) {
+          var correctedLocation = decodeAndEncodeUrl(location);
+          // 继续请求修正后的URL
+          Object.assign(config, { url: correctedLocation });
+          request(config, function (err, res, body) {
+            if (err) {
+              reject(err);
+              return;
+            }
+
+            if (!isOk(res)) {
+              reject(new HTTPError(res.statusCode));
+              return;
+            }
+
+            resolve(body);
+          });
+        } else {
+          reject(new HTTPError(response.statusCode));
+        }
+        return;
+      } else if (!isOk(response)) {
         reject(new HTTPError(response.statusCode));
         return;
       }
