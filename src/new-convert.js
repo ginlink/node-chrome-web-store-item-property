@@ -30,7 +30,7 @@ function newConvert(detailHtml) {
     });
 
     // 解析version
-    var regex = /<div[^>]*>([\d.]+)<\/div>/;
+    var regex = /<div[^>]*>v?([\d.]+)<\/div>/;
     var versionMatch = detailHtml.match(regex);
     var version = null;
     if (versionMatch && versionMatch.length > 1) {
